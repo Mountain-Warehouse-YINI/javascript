@@ -2,7 +2,7 @@ class SalesItem {
     constructor(branch, totalSales, date) {
         this.branch = branch;
         this.totalSales = totalSales;
-        this.date = date
+        this.date = date;
     }
 }
 
@@ -18,9 +18,32 @@ class SalesItem {
 /// <returns>The branch with the best performing sales</returns>
 function CalculateBestBranch(sales) {
     var branchSales = { key: "", value: 0 };
+  
+    var branches = [];
 
-    // Implement your code here
-    throw new NotImplementedException();
+    // loop through array of objects
+    for(let i =0; i < sales.length; i++)
+    {
+        // for each element
+        for ( let j = 0; j < sales.length; j++)
+        {
+                
+            // check if branches array includes element name already
+            if (branches.includes(sales[i].branch))
+            {
+                // add branch sales element in the array, but totaling on to the previous value stored
+                
+                branches.indexOf(sales[i].branch)
+            }
+            // if not add the object values to the array
+            
+        }
+     
+      
+    }
+
+    // check the new array for which has the largest integer
+
 
     // TODO: order branchSales by value, highest first
     // TODO: return the key of the highest value

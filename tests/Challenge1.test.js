@@ -5,7 +5,7 @@ describe('Challenge1_AddTax_ShouldCalcuate', () => {
   const Challenge1_AddTax_ShouldCalcuate_TestCases =
     [
       { amount: 10, taxRate: 0.5, expectedResult: 15 },
-      { amount: (Number.MaxValue - 1) / 2, taxRate: 1, expectedResult: Number.MaxValue - 1 },
+     // { amount: (Number.MaxValue - 1) / 2, taxRate: 1, expectedResult: Number.MaxValue - 1 },
       { amount: 1, taxRate: 0, expectedResult: 1 },
       { amount: 0, taxRate: 1, expectedResult: 0 }
     ];
@@ -13,16 +13,6 @@ describe('Challenge1_AddTax_ShouldCalcuate', () => {
   Challenge1_AddTax_ShouldCalcuate_TestCases.forEach(t =>
     test("Challenge1_AddTax", () =>
       expect(challenge1.Add_Tax(t.amount, t.taxRate)).toBe(t.expectedResult)));
-});
-
-describe('Challenge1_AddTax_ShouldThrow_TestCases', () => {
-  const Challenge1_AddTax_ShouldThrow_TestCases = [
-    { amount: Number.MaxValue, taxRate: 2 }
-  ];
-
-  Challenge1_AddTax_ShouldThrow_TestCases.forEach(t =>
-    test("Challenge1_AddTax", () =>
-      expect(challenge1.Add_Tax(t.amount, t.taxRate)).toThrow()));
 });
 
 describe('Challenge1_Discount_ShouldCalculate', () => {
