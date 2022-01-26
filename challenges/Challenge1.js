@@ -55,12 +55,16 @@ function Buy_One_Get_One_Half_Price(item1, item2) {
 /// <param name="amounts">An array of numbers</param>
 /// <returns>Returns total value of goods</returns>
 function Calculate_Total_Cost(amounts) {
- 
-  let totalsum;
-  let length = amounts.length;
-  for(let i = 0; i < length; i++){
-    amounts[i] = totalsum + amounts[i];
-  }
+  // use reduce function as code wasnot working
+   return amounts.reduce((a, b) => a + b);
 }
+//   let totalsum = 0;
+//  // let length = amounts.length;
+//   for(let i = 0; i < amounts.length; i++){
+
+
+//     return totalsum += amounts[i]; 
+//   }
+
 
 module.exports = { Add_Tax, Discount, Buy_One_Get_One_Half_Price, Calculate_Total_Cost };

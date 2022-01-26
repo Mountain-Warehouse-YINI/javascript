@@ -24,24 +24,23 @@ function StampDuty(propertyPrice) {
     var startingValueForTax = propertyPrice;
     var tax = 0;
 
+    if (propertyPrice > 1500000) {
+        tax = tax + ((startingValueForTax - 1500000)* 0.12);
+        startingValueForTax = 1500000;
+    }
+    if (startingValueForTax > 925000) {
+        tax = tax + ((startingValueForTax - 925000)* 0.10);
+        startingValueForTax =  925000;
+    }
 
     if (startingValueForTax > 300000) {
+        // add tax to the value. Deduct 300,000 form the taxable amount
         tax = tax + ((startingValueForTax - 300000)* 0.05);
-        startingValueForTax = startingValueForTax - 300000;
+        // remove the 
+        startingValueForTax = 300000;
     }
 
-    if (propertyPrice> 925000) {
-        tax = tax + ((startingValueForTax - 925000)* 0.10);
-        startingValueForTax = startingValueForTax - 925000;
-    }
-
-    if (propertyPrice > 1500000) {
-        
-        tax = tax + ((startingValueForTax - 1500000)* 0.12);
-        startingValueForTax = startingValueForTax - 1500000;
-    }
-
-    
+  
 
    
 

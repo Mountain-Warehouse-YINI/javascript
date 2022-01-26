@@ -17,9 +17,6 @@ class SalesItem {
 /// <param name="sales">The array of sales items (class SalesItem, see above declaration)</param>
 /// <returns>The branch with the best performing sales</returns>
 function CalculateBestBranch(sales) {
-
-
-
     var branchSales = { key: "", value: 0 };
 
     let names =[];
