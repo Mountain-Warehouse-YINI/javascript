@@ -25,6 +25,10 @@ function Add_Tax(nonTaxAmount, taxRate) {
 /// <returns>Returns the price after discount.</returns>
 function Discount(currentPrice, discount) {
 
+  if (discount<= 0) {
+    return -1;
+  }
+
   return currentPrice - (currentPrice * discount);
 }
 
@@ -35,8 +39,14 @@ function Discount(currentPrice, discount) {
 /// <param name="item2">The second item</param>
 /// <returns>Returns total value of goods</returns>
 function Buy_One_Get_One_Half_Price(item1, item2) {
+  if(item1 < item2){
+    return (item1 / 2) + item2;
+  }
+  else {
+    return (item2 / 2) + item1;
+  }
   
-  return item1 / 2 + item2;
+  
 }
 
 /// <summary>
@@ -46,10 +56,10 @@ function Buy_One_Get_One_Half_Price(item1, item2) {
 /// <returns>Returns total value of goods</returns>
 function Calculate_Total_Cost(amounts) {
  
-  totalsum = 0;
-  length = amounts.length;
+  let totalsum;
+  let length = amounts.length;
   for(let i = 0; i < length; i++){
-    amounts[i] += totalsum;
+    amounts[i] = totalsum + amounts[i];
   }
 }
 

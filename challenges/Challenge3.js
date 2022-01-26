@@ -17,37 +17,58 @@ class SalesItem {
 /// <param name="sales">The array of sales items (class SalesItem, see above declaration)</param>
 /// <returns>The branch with the best performing sales</returns>
 function CalculateBestBranch(sales) {
+
+
+
     var branchSales = { key: "", value: 0 };
-  
-    var branches = [];
 
-    // loop through array of objects
-    for(let i =0; i < sales.length; i++)
-    {
-        // for each element
-        for ( let j = 0; j < sales.length; j++)
+    let names =[];
+    let total = 0;
+    let total2 = 0;
+   // create array of names AND ADD THEM TO ARRAY OF NAMES
+    sales.forEach(element => {
+        if (names.includes(element.branch))
         {
-                
-            // check if branches array includes element name already
-            if (branches.includes(sales[i].branch))
-            {
-                // add branch sales element in the array, but totaling on to the previous value stored
-                
-                branches.indexOf(sales[i].branch)
-            }
-            // if not add the object values to the array
-            
+           return;
         }
-     
-      
-    }
+        else {
+            names.push(element.branch);
+        }
+    });
+    // add totals for the arrays and add them to another
+       sales.forEach(element => {
+          if(element.branch == names[0]) {
+               total +=  element.totalSales;
+          }
+          if(element.branch == names[1]) {
+               total2 +=  element.totalSales;
+          }
+       });
 
-    // check the new array for which has the largest integer
+   if (total > total2) {
 
+     branchSales = { key: names[0], value: total };
+   }
+   else {
+    branchSales = { key: names[1], value: total2 };
+   }
+
+    // // list all branch names
+    // let branches = sales.map((item) => {
+    //     return item.branch;
+    // });
+    // // compare the branch names each
+    // for(let i = 0; i < branches.length; i++)
+    // {
+    //     let filteredItems = sales.filter((sale)=> {
+    //         return sale == branches[i];
+    // });
+
+    // console.log(
 
     // TODO: order branchSales by value, highest first
     // TODO: return the key of the highest value
-    const highestValue = 0;
+    const highestValue = branchSales.key;
     return highestValue;
 }
 
