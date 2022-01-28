@@ -50,6 +50,18 @@ function CalculateBestBranch(sales) {
     branchSales = { key: names[1], value: total2 };
    }
 
+   // loop through array of object
+
+   // store each oject in new arraw
+
+   // if array name contains new object name, sum total
+
+   // else add new name and value
+
+   //loop check
+
+
+
     // // list all branch names
     // let branches = sales.map((item) => {
     //     return item.branch;

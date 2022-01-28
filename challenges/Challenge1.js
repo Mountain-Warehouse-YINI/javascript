@@ -7,15 +7,13 @@
 /// <returns>Returns the price including tax.</returns>
 function Add_Tax(nonTaxAmount, taxRate) {
 
- let totalAmount;
+ let totalAmount = 0;
   if (taxRate == 0) {
     totalAmount = nonTaxAmount;
   }
-
   totalAmount = nonTaxAmount + (nonTaxAmount * taxRate);
   return totalAmount;
 }
-
 /// <summary>
 /// Takes in the current price and returns the price after discount has been deducted.
 /// If the discount value is not valid then this method should return -1
@@ -28,10 +26,8 @@ function Discount(currentPrice, discount) {
   if (discount<= 0) {
     return -1;
   }
-
   return currentPrice - (currentPrice * discount);
 }
-
 /// <summary>
 /// Calculate the total price where two items are part of a "Buy One Get One Half Price" promotion.
 /// </summary>
@@ -39,13 +35,10 @@ function Discount(currentPrice, discount) {
 /// <param name="item2">The second item</param>
 /// <returns>Returns total value of goods</returns>
 function Buy_One_Get_One_Half_Price(item1, item2) {
-  if(item1 < item2){
+  if(item1 < item2) {
     return (item1 / 2) + item2;
   }
-  else {
     return (item2 / 2) + item1;
-  }
-  
   
 }
 
@@ -58,6 +51,7 @@ function Calculate_Total_Cost(amounts) {
   // use reduce function as code wasnot working
    return amounts.reduce((a, b) => a + b);
 }
+// not sure why this not working
 //   let totalsum = 0;
 //  // let length = amounts.length;
 //   for(let i = 0; i < amounts.length; i++){

@@ -13,6 +13,7 @@
 function ReturnSmallestValueInArray(numbers) {
     // Math.min(...nums)
     let min = Number.MAX_VALUE;
+    let length = numbers.length
     if (numbers.length == 0) {
         return 0;
     }
@@ -20,13 +21,13 @@ function ReturnSmallestValueInArray(numbers) {
     //     elem
     // });
 
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < length; i++) {
         if (numbers[i] < min) 
         {
             min = numbers[i];
         }
     }
-    return min
+    return min;
 }
 
 module.exports = { ReturnSmallestValueInArray };
