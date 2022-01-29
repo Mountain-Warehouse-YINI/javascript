@@ -1,6 +1,7 @@
 const { TestWatcher } = require('jest');
 const challenge4 = require('../challenges/Challenge4');
 
+
 const Challenge4_StampDuty_TestCases = [
     { propertyPrice: 125000, expectedResult: 0 },
     { propertyPrice: 300000, expectedResult: 0 },

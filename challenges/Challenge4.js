@@ -23,19 +23,22 @@ function StampDuty(propertyPrice) {
 
     var startingValueForTax = propertyPrice;
     var tax = 0;
-
-    if (startingValueForTax > 1500000) {
-        throw new NotImplementedException();
+    
+    if (propertyPrice > 1500000) {
+        // calculate different tax and add to sum, for difference over fixed value
+        tax = tax + ((startingValueForTax - 1500000) * 0.12);
+        // set starting value to fixed value and proceed to move down
+        startingValueForTax = 1500000;
     }
-
     if (startingValueForTax > 925000) {
-        throw new NotImplementedException();
+        tax = tax + ((startingValueForTax - 925000) * 0.10);
+        startingValueForTax =  925000;
     }
-
     if (startingValueForTax > 300000) {
-        throw new NotImplementedException();
+    
+        tax = tax + ((startingValueForTax - 300000) * 0.05);
+        startingValueForTax = 300000;
     }
-
     return Math.round(tax);
 }
 

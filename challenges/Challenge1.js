@@ -6,9 +6,15 @@
 /// <param name="taxRate">The tax rate to be applied. 50% = 0.5</param>
 /// <returns>Returns the price including tax.</returns>
 function Add_Tax(nonTaxAmount, taxRate) {
-  throw new NotImplementedException();
-}
 
+ let totalAmount = 0;
+
+    if (taxRate <= 0) {
+
+    return totalAmount = nonTaxAmount;
+  }
+    return totalAmount = nonTaxAmount + (nonTaxAmount * taxRate);
+}
 /// <summary>
 /// Takes in the current price and returns the price after discount has been deducted.
 /// If the discount value is not valid then this method should return -1
@@ -17,9 +23,13 @@ function Add_Tax(nonTaxAmount, taxRate) {
 /// <param name="discount">The percentage off of the rrp to be applied. E.g. 10% = 0.1</param>
 /// <returns>Returns the price after discount.</returns>
 function Discount(currentPrice, discount) {
-  throw new NotImplementedException();
-}
+  
+  if (discount < 0 || discount >= 1) {
 
+    return -1;
+  }
+    return  currentPrice = currentPrice - (currentPrice * discount);
+}
 /// <summary>
 /// Calculate the total price where two items are part of a "Buy One Get One Half Price" promotion.
 /// </summary>
@@ -27,7 +37,13 @@ function Discount(currentPrice, discount) {
 /// <param name="item2">The second item</param>
 /// <returns>Returns total value of goods</returns>
 function Buy_One_Get_One_Half_Price(item1, item2) {
-  throw new NotImplementedException();
+
+  if(item1 < item2) {
+
+    return (item1 / 2) + item2;
+  }
+
+    return (item2 / 2) + item1;
 }
 
 /// <summary>
@@ -36,7 +52,16 @@ function Buy_One_Get_One_Half_Price(item1, item2) {
 /// <param name="amounts">An array of numbers</param>
 /// <returns>Returns total value of goods</returns>
 function Calculate_Total_Cost(amounts) {
-  throw new NotImplementedException();
+
+  let totalsum = 0;
+  let length = amounts.length;
+
+  for(let i = 0; i < length; i++) {
+
+      totalsum += amounts[i]; 
+  }
+
+  return totalsum;
 }
 
 module.exports = { Add_Tax, Discount, Buy_One_Get_One_Half_Price, Calculate_Total_Cost };
