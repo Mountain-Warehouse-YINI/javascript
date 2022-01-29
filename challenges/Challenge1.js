@@ -6,7 +6,11 @@
 /// <param name="taxRate">The tax rate to be applied. 50% = 0.5</param>
 /// <returns>Returns the price including tax.</returns>
 function Add_Tax(nonTaxAmount, taxRate) {
-  throw new NotImplementedException();
+  if(taxRate <= 0)
+  {
+    return nonTaxAmount;
+  }
+  return nonTaxAmount += (nonTaxAmount * taxRate);
 }
 
 /// <summary>
@@ -17,7 +21,11 @@ function Add_Tax(nonTaxAmount, taxRate) {
 /// <param name="discount">The percentage off of the rrp to be applied. E.g. 10% = 0.1</param>
 /// <returns>Returns the price after discount.</returns>
 function Discount(currentPrice, discount) {
-  throw new NotImplementedException();
+  if (discount <= 0 || discount >= 1)
+  {
+    return -1;
+  }
+  return currentPrice - (currentPrice * discount);
 }
 
 /// <summary>
@@ -27,7 +35,11 @@ function Discount(currentPrice, discount) {
 /// <param name="item2">The second item</param>
 /// <returns>Returns total value of goods</returns>
 function Buy_One_Get_One_Half_Price(item1, item2) {
-  throw new NotImplementedException();
+  if (item1 <= item2)
+  {
+    return (item1 / 2) + item2;
+  }
+  return (item2 / 2 )+ item1;
 }
 
 /// <summary>
@@ -36,7 +48,12 @@ function Buy_One_Get_One_Half_Price(item1, item2) {
 /// <param name="amounts">An array of numbers</param>
 /// <returns>Returns total value of goods</returns>
 function Calculate_Total_Cost(amounts) {
-  throw new NotImplementedException();
+  let sum = 0;
+  for(let i = 0; i < amounts.length; i++)
+  {
+     sum += amounts[i];
+  }
+  return sum;
 }
 
 module.exports = { Add_Tax, Discount, Buy_One_Get_One_Half_Price, Calculate_Total_Cost };
