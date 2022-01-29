@@ -11,22 +11,23 @@
 /// <returns>The smallest value in the array</returns>
 
 function ReturnSmallestValueInArray(numbers) {
-    // Math.min(...nums)
+
     let min = Number.MAX_VALUE;
-    let length = numbers.length
-    if (numbers.length == 0) {
+    let length = numbers.length;
+
+    if (numbers.length == 0) 
+    {
         return 0;
     }
-    // numbers.forEach(element => {
-    //     elem
-    // });
 
-    for (let i = 0; i < length; i++) {
+    for (var i = 0; i < length; i++)
+    {
         if (numbers[i] < min) 
         {
             min = numbers[i];
         }
     }
+
     return min;
 }
 

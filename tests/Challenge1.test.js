@@ -5,7 +5,7 @@ describe('Challenge1_AddTax_ShouldCalcuate', () => {
   const Challenge1_AddTax_ShouldCalcuate_TestCases =
     [
       { amount: 10, taxRate: 0.5, expectedResult: 15 },
-     // { amount: (Number.MaxValue - 1) / 2, taxRate: 1, expectedResult: Number.MaxValue - 1 },
+      { amount: (Number.MaxValue - 1) / 2, taxRate: 1, expectedResult: Number.MaxValue - 1 / 2},
       { amount: 1, taxRate: 0, expectedResult: 1 },
       { amount: 0, taxRate: 1, expectedResult: 0 }
     ];
@@ -26,7 +26,7 @@ describe('Challenge1_Discount_ShouldCalculate', () => {
 
   Challenge1_Discount_ShouldCalculate_TestCases.forEach(t =>
     test("Challenge1_Discount", () =>
-      expect(challenge1.Discount(t.amount, t.taxRate)).toThrow()));
+      expect(challenge1.Discount(t.rrp, t.taxRate)).toBe(t.ExpectedResult)));
 });
 
 describe('Challenge1_Calculate_Total_Cost_Should_Calculate', () => {

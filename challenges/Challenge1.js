@@ -8,11 +8,12 @@
 function Add_Tax(nonTaxAmount, taxRate) {
 
  let totalAmount = 0;
-  if (taxRate == 0) {
-    totalAmount = nonTaxAmount;
+
+    if (taxRate <= 0) {
+
+    return totalAmount = nonTaxAmount;
   }
-  totalAmount = nonTaxAmount + (nonTaxAmount * taxRate);
-  return totalAmount;
+    return totalAmount = nonTaxAmount + (nonTaxAmount * taxRate);
 }
 /// <summary>
 /// Takes in the current price and returns the price after discount has been deducted.
@@ -22,11 +23,12 @@ function Add_Tax(nonTaxAmount, taxRate) {
 /// <param name="discount">The percentage off of the rrp to be applied. E.g. 10% = 0.1</param>
 /// <returns>Returns the price after discount.</returns>
 function Discount(currentPrice, discount) {
+  
+  if (discount < 0 || discount >= 1) {
 
-  if (discount<= 0) {
     return -1;
   }
-  return currentPrice - (currentPrice * discount);
+    return  currentPrice = currentPrice - (currentPrice * discount);
 }
 /// <summary>
 /// Calculate the total price where two items are part of a "Buy One Get One Half Price" promotion.
@@ -35,11 +37,13 @@ function Discount(currentPrice, discount) {
 /// <param name="item2">The second item</param>
 /// <returns>Returns total value of goods</returns>
 function Buy_One_Get_One_Half_Price(item1, item2) {
+
   if(item1 < item2) {
+
     return (item1 / 2) + item2;
   }
+
     return (item2 / 2) + item1;
-  
 }
 
 /// <summary>
@@ -48,17 +52,16 @@ function Buy_One_Get_One_Half_Price(item1, item2) {
 /// <param name="amounts">An array of numbers</param>
 /// <returns>Returns total value of goods</returns>
 function Calculate_Total_Cost(amounts) {
-  // use reduce function as code wasnot working
-   return amounts.reduce((a, b) => a + b);
+
+  let totalsum = 0;
+  let length = amounts.length;
+
+  for(let i = 0; i < length; i++) {
+
+      totalsum += amounts[i]; 
+  }
+
+  return totalsum;
 }
-// not sure why this not working
-//   let totalsum = 0;
-//  // let length = amounts.length;
-//   for(let i = 0; i < amounts.length; i++){
-
-
-//     return totalsum += amounts[i]; 
-//   }
-
 
 module.exports = { Add_Tax, Discount, Buy_One_Get_One_Half_Price, Calculate_Total_Cost };

@@ -5,7 +5,6 @@ class SalesItem {
         this.date = date;
     }
 }
-
 /// <summary>
 /// It has been a busy year at mountain warehouse, having made lots of sales.
 /// Management would like to know which branch made the most in revenue.
@@ -17,63 +16,36 @@ class SalesItem {
 /// <param name="sales">The array of sales items (class SalesItem, see above declaration)</param>
 /// <returns>The branch with the best performing sales</returns>
 function CalculateBestBranch(sales) {
-    var branchSales = { key: "", value: 0 };
 
-    let names =[];
-    let total = 0;
-    let total2 = 0;
-   // create array of names AND ADD THEM TO ARRAY OF NAMES
-    sales.forEach(element => {
-        if (names.includes(element.branch))
-        {
-           return;
-        }
-        else {
-            names.push(element.branch);
-        }
+    let branchSales = { key: "", value: 0 };
+    let branchSale = {};
+
+    sales.forEach((sale) =>
+    {
+        //check if the object has a property for the name
+      if (branchSale.hasOwnProperty(sale.branch)) 
+      {
+          //add value of the object to the existing value
+        branchSale[sale.branch] = branchSale[sale.branch] + sale.totalSales;
+      } 
+      else 
+      {
+          // set object to the value
+        branchSale[sale.branch] = sale.totalSales;
+      }
     });
-    // add totals for the arrays and add them to another
-       sales.forEach(element => {
-          if(element.branch == names[0]) {
-               total +=  element.totalSales;
-          }
-          if(element.branch == names[1]) {
-               total2 +=  element.totalSales;
-          }
-       });
-
-   if (total > total2) {
-
-     branchSales = { key: names[0], value: total };
-   }
-   else {
-    branchSales = { key: names[1], value: total2 };
-   }
-
-   // loop through array of object
-
-   // store each oject in new arraw
-
-   // if array name contains new object name, sum total
-
-   // else add new name and value
-
-   //loop check
-
-
-
-    // // list all branch names
-    // let branches = sales.map((item) => {
-    //     return item.branch;
-    // });
-    // // compare the branch names each
-    // for(let i = 0; i < branches.length; i++)
-    // {
-    //     let filteredItems = sales.filter((sale)=> {
-    //         return sale == branches[i];
-    // });
-
-    // console.log(
+    // once branch object completed, run loop and add to array
+    let branchObjects = [];
+    for (let bs in branchSale) {
+      branchObjects.push({ key: bs, value: branchSale[bs] });
+    }
+    // creating a leader list, by determining highest by sorting descending
+   let leaderList = branchObjects.sort((a, b) => {
+       return parseFloat(b.value) - parseFloat(a.value);
+    })
+    // setting the winner 
+    branchSales.key = leaderList[0].key;
+    branchSales.value = leaderList[0].value;
 
     // TODO: order branchSales by value, highest first
     // TODO: return the key of the highest value
