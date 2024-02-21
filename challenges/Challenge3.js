@@ -17,15 +17,22 @@ class SalesItem {
 /// <param name="sales">The array of sales items (class SalesItem, see above declaration)</param>
 /// <returns>The branch with the best performing sales</returns>
 function CalculateBestBranch(sales) {
-    var branchSales = { key: "", value: 0 };
+    let branchTotalSales = {};
 
-    // Implement your code here
-    throw new NotImplementedException();
+    sales.forEach(sale => {
+        branchTotalSales[sale.branch] = (branchTotalSales[sale.branch] || 0) + sale.totalSales;
+    });
+    
 
-    // TODO: order branchSales by value, highest first
-    // TODO: return the key of the highest value
-    const highestValue = 0;
-    return highestValue;
+    var bestBranch = { key: "", value: 0 };
+    for (var branch in branchTotalSales) {
+        if (branchTotalSales[branch] > bestBranch.value) {
+            bestBranch.key = branch;
+            bestBranch.value = branchTotalSales[branch];
+        }
+    }
+
+    return bestBranch.key;
 }
 
 module.exports = { CalculateBestBranch, SalesItem };

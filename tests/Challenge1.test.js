@@ -22,8 +22,9 @@ describe('Challenge1_AddTax_ShouldThrow_TestCases', () => {
 
   Challenge1_AddTax_ShouldThrow_TestCases.forEach(t =>
     test("Challenge1_AddTax", () =>
-      expect(challenge1.Add_Tax(t.amount, t.taxRate)).toThrow()));
+      expect(() => challenge1.Add_Tax(t.amount, t.taxRate)).toThrow()));
 });
+
 
 describe('Challenge1_Discount_ShouldCalculate', () => {
   const Challenge1_Discount_ShouldCalculate_TestCases = [
@@ -36,7 +37,7 @@ describe('Challenge1_Discount_ShouldCalculate', () => {
 
   Challenge1_Discount_ShouldCalculate_TestCases.forEach(t =>
     test("Challenge1_Discount", () =>
-      expect(challenge1.Discount(t.amount, t.taxRate)).toThrow()));
+      expect(challenge1.Discount(t.rrp, t.taxRate)).toBe(t.ExpectedResult)));
 });
 
 describe('Challenge1_Calculate_Total_Cost_Should_Calculate', () => {

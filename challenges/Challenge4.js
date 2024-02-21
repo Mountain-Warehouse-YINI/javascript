@@ -18,22 +18,23 @@
 /// <param name="propertyPrice">The price of the property purchased</param>
 /// <returns>Total stamp duty</returns>
 function StampDuty(propertyPrice) {
-    if (propertyPrice <= 300001)
+    if (propertyPrice <= 300000)
         return 0;
 
-    var startingValueForTax = propertyPrice;
     var tax = 0;
 
-    if (startingValueForTax > 1500000) {
-        throw new NotImplementedException();
+    if (propertyPrice > 1500000) {
+        tax += (propertyPrice - 1500000) * 0.12;
+        propertyPrice = 1500000;
     }
 
-    if (startingValueForTax > 925000) {
-        throw new NotImplementedException();
+    if (propertyPrice > 925000) {
+        tax += (propertyPrice - 925000) * 0.10;
+        propertyPrice = 925000;
     }
 
-    if (startingValueForTax > 300000) {
-        throw new NotImplementedException();
+    if (propertyPrice > 300000) {
+        tax += (propertyPrice - 300000) * 0.05;
     }
 
     return Math.round(tax);
